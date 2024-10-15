@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Dtos;
+﻿namespace CleanArchitecture.Application.Dtos.CommanDtos;
 public class PageCountDto
 {
     public int PageCount { get; set; } = 0;
