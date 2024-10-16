@@ -1,5 +1,4 @@
-﻿using CleanArchitecture.Application.Dtos.CommanDtos;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.UserDtos.ResponseDto;
 public class UserResponseDto : BaseDto
