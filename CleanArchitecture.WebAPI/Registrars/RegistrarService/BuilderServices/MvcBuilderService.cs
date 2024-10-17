@@ -1,7 +1,7 @@
 ﻿using Asp.Versioning;
+using CleanArchitecture.Application;
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
-using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
@@ -14,7 +14,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
             var connectionString = builder.Configuration.GetConnectionString("default");
 
             builder.Services.AddControllers();
-            builder.Services.AddFluentValidationAutoValidation();
+            //builder.Services.AddFluentValidationAutoValidation();
             builder.Services.AddApiVersioning(options =>
             {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -28,7 +28,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
             });
             builder.Services.AddEndpointsApiExplorer();
 
-            builder.Services.AddAutoMapper(typeof(Program)); // Register Auto Mapper
+            builder.Services.AddApplicationServices();
 
             builder.Services.AddDbContext<StrideMemoDbContext>(x =>
             {

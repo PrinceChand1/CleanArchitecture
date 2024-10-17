@@ -1,23 +1,20 @@
-﻿namespace CleanArchitecture.Domain.Entities.ErrorLogEntities;
-[Table(nameof(ErrorLog))]
-public class ErrorLog : BaseEntity
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CleanArchitecture.Application.Dtos.ErrorLogDtos.ResponseDto;
+public class ErrorLogResponseDto
 {
+    public int Id { get; set; }
     [Required]
-    [MaxLength(200)]
+    public required DateTime Date { get; set; }
+    [Required]
     public required int Userid { get; set; }
     [Required]
-    [MaxLength(200)]
     public required string Method { get; set; }
     [Required]
-    [MaxLength(200)]
     public required string Operation { get; set; }
     [Required]
-    [MaxLength(10000)]
     public string? Path { get; set; } = string.Empty;
-    [MaxLength(10000)]
     public string? InnerException { get; set; }
-    [MaxLength(10000)]
     public required string ErrorMessage { get; set; }
-    [MaxLength(10000)]
     public required string StackTrace { get; set; }
 }

@@ -8,6 +8,7 @@ public class User : BaseEntity
     [MaxLength(200)]
     public string LastName { get; set; } = string.Empty;
     [Required]
+    [MaxLength(20)]
     public required string Gender { get; set; }
     [Required]
     public required int Age { get; set; }

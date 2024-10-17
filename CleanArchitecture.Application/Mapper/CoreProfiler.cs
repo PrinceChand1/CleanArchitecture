@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Mapper.EmailConfigProfiles;
+using CleanArchitecture.Application.Mapper.ErrorLogProfiles;
 using CleanArchitecture.Application.Mapper.UserProfiles;
 
 namespace CleanArchitecture.Application.Mapper;
@@ -8,8 +9,6 @@ public class CoreProfiler : Profile
     {
         UserProfiler.ConfigureMappings(this);
         EmailConfigProfiler.ConfigureMappings(this);
+        ErrorLogProfiler.ConfigureMappings(this);
     }
 }
-
-
-

@@ -1,9 +1,8 @@
-﻿using CleanArchitecture.Application.Dtos.CommanDtos;
-using CleanArchitecture.Shared.Enum;
+﻿using CleanArchitecture.Shared.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.UserDtos.RequestDto;
-public class UserRequestDto : PageCountDto, IValidatableObject
+public class UserRequestDto : IValidatableObject
 {
     public int Id { get; set; }
     [Required(ErrorMessage = $"{nameof(FirstName)} is required.")]
