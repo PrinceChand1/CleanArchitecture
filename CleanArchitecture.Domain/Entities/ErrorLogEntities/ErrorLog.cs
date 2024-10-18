@@ -6,6 +6,8 @@ public class ErrorLog : BaseEntity
     [MaxLength(200)]
     public required int Userid { get; set; }
     [Required]
+    public required DateTime Date { get; set; } = DateTime.Now;
+    [Required]
     [MaxLength(200)]
     public required string Method { get; set; }
     [Required]

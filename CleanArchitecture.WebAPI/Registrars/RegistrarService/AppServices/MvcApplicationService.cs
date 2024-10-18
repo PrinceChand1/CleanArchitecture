@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning.ApiExplorer;
+using CleanArchitecture.Application.Comman.Behaviours;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 
@@ -9,7 +10,10 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.AppServices
         public void RegistrarApplicationServices(WebApplication app)
         {
             string CorsOrigins = "CorsOrigins";
-
+            app.UseMiddleware(typeof(ExceptionHandlerMiddlewareBehaviour));
+            if (!app.Environment.IsDevelopment())
+            {
+            }
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {

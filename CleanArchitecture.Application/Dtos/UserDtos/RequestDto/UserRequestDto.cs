@@ -2,9 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.UserDtos.RequestDto;
-public class UserRequestDto : IValidatableObject
+public class UserRequestDto : BaseDto, IValidatableObject
 {
-    public int Id { get; set; }
     [Required(ErrorMessage = $"{nameof(FirstName)} is required.")]
     public required string FirstName { get; set; }
     public string? LastName { get; set; }

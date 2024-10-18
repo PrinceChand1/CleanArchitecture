@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Domain.Entities.EmailConfigEntities;
 [Table(nameof(EmailConfig))]
-public class EmailConfig : BaseEntity
+public class EmailConfig : BaseAuditableEntity
 {
     [Required]
     [MaxLength(200)]

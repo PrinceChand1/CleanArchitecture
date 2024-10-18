@@ -27,7 +27,7 @@ public class EmailConfigConfiguration : IEntityTypeConfiguration<EmailConfig>
             Username = "Admin",
             Password = "ADX6 7GFR 9JHY",
             EnableSsl = false,
-            CreatedDate = DateTime.UtcNow,
+            CreatedOn = DateTime.UtcNow,
         });
     }
 }

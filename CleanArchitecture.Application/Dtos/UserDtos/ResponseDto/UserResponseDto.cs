@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.UserDtos.ResponseDto;
-public class UserResponseDto : BaseDto
+public class UserResponseDto : BaseAuditableDto
 {
     [Required]
     public required string FirstName { get; set; }

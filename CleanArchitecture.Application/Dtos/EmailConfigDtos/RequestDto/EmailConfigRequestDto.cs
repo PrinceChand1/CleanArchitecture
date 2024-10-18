@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.EmailConfigDtos.RequestDto;
-public class EmailConfigRequestDto
+public class EmailConfigRequestDto : BaseDto
 {
-    public int Id { get; set; }
     [Required(ErrorMessage = $"{nameof(FromMail)} is required.")]
     [EmailAddress(ErrorMessage = $"Please enter a valid {nameof(FromMail)} address (e.g., name@example.com)")]
     public required string FromMail { get; set; }

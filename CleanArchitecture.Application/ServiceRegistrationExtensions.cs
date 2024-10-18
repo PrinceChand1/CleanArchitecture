@@ -1,9 +1,11 @@
 ﻿using CleanArchitecture.Application.Services.AbstractServices;
 using CleanArchitecture.Application.Services.AbstractServices.EmailConfigs;
+using CleanArchitecture.Application.Services.AbstractServices.ErrorLogs;
 using CleanArchitecture.Application.Services.AbstractServices.Users;
 using CleanArchitecture.Application.Services.UserCases;
 using CleanArchitecture.Application.Services.UserCases.EmailConfigs;
 using CleanArchitecture.Application.Services.UserCases.Users;
+using CleanArchitecture.Application.Services.UserCaseServices.ErrorLogs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +22,7 @@ public static class ServiceRegistrationExtensions
     {
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IEmailConfigService, EmailConfigService>();
+        services.AddScoped<IErrorLogService, ErrorLogService>();
         services.AddScoped<IExport, Export>();
         return services;
     }

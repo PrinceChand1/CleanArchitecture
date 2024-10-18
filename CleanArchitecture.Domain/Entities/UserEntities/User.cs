@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Users;
 [Table(nameof(User))]
-public class User : BaseEntity
+public class User : BaseAuditableEntity
 {
     [Required]
     [MaxLength(200)]

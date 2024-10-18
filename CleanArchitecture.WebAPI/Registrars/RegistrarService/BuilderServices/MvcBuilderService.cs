@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning;
 using CleanArchitecture.Application;
+using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
 using Microsoft.EntityFrameworkCore;
@@ -28,13 +29,12 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
             });
             builder.Services.AddEndpointsApiExplorer();
 
-            builder.Services.AddApplicationServices();
+            builder.Services.AddInfrastructureServices().AddApplicationServices();
 
             builder.Services.AddDbContext<StrideMemoDbContext>(x =>
             {
                 x.UseSqlServer(connectionString);
             });
-
 
             // CORS setup
             string? corsRaw = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -53,6 +53,8 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
                         });
                 });
             }
+
+            builder.Services.AddApplicationServices();
         }
     }
 }

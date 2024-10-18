@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net;
 
-namespace CleanArchitecture.Application.Behaviours;
+namespace CleanArchitecture.Application.Comman.Behaviours;
 public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegate)
 {
     private IUnitOfWork _unitOfWork = null!;
@@ -50,14 +50,14 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
                 InnerException = Convert.ToString(exception.InnerException),
                 ErrorMessage = Convert.ToString(exception.Message),
                 StackTrace = exception.StackTrace ?? "N/A",
-                CreatedOn = DateTime.Now,
+                Date = DateTime.Now,
             };
             await _unitOfWork.ErrorLogRepository.AddAsync(ErrorlogObj);
             await _unitOfWork.CompleteAsync();
         }
         catch (Exception ex)
         {
-            ResultDto<Object> Res = new ResultDto<object>();
+            ResultDto<object> Res = new ResultDto<object>();
             if (ex.Message == SharedResoure.ErrorHandlingError)
             {
                 Res.Success = false;

@@ -29,15 +29,15 @@ public class UnitOfWork : IUnitOfWork
         try
         {
             string userName = string.Empty;
-            var user = securityBuilder.GetUser();
-            if (user != null)
-            {
-                userName = user.Email;
-            }
+            //var user = securityBuilder.GetUser();
+            //if (user != null)
+            //{
+            //    userName = user.Email;
+            //}
             var allSavedEntries = _strideMemoDbContext.ChangeTracker.Entries().Where(x => x.State == Microsoft.EntityFrameworkCore.EntityState.Added || x.State == Microsoft.EntityFrameworkCore.EntityState.Modified).ToList();
             foreach (var entry in allSavedEntries)
             {
-                var entity = (BaseEntity)entry.Entity;
+                var entity = (BaseAuditableEntity)entry.Entity;
 
                 if (entry.State == Microsoft.EntityFrameworkCore.EntityState.Added)
                 {

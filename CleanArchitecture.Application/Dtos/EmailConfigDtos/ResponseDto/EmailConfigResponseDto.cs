@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.Dtos.EmailConfigDtos.ResponseDto;
-public class EmailConfigResponseDto : BaseDto
+public class EmailConfigResponseDto : BaseAuditableDto
 {
     [Required]
     public required string FromMail { get; set; }
