@@ -11,6 +11,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.AppServices
         {
             string CorsOrigins = "CorsOrigins";
             app.UseMiddleware(typeof(ExceptionHandlerMiddlewareBehaviour));
+            //app.UseMiddleware(typeof(JwtSecurityMiddleware));
             if (!app.Environment.IsDevelopment())
             {
             }

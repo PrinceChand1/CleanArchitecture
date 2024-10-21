@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CleanArchitecture.Application.Dtos.ErrorLogDtos.ResponseDto;
-public class ErrorLogResponseDto : BaseDto
+namespace CleanArchitecture.Application.Dtos.LogDtos.RequestDto;
+public class LogRequestDto : BaseDto
 {
     [Required]
     public required DateTime Date { get; set; }

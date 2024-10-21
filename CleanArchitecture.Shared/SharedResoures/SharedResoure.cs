@@ -19,4 +19,5 @@ public class SharedResoure
     public const string Usernotfound = "User not found.";
     public const string IncorrectPassword = "Password is incorrect.";
     public const string UnauthorizeUser = "This end point secured with token.Plese provide the token.";
+    public const string MigrationLayer = "CleanArchitecture.Persistence";
 }

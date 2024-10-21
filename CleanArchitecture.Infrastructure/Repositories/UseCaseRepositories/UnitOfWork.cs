@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories;
 using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories.EmailConfigRepositories;
-using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories.ErrorLogRepositories;
+using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories.LogRepositories;
 using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories.UserRepositories;
 
 namespace CleanArchitecture.Infrastructure.Repositories.UseCaseRepositories;
@@ -10,7 +10,7 @@ public class UnitOfWork : IUnitOfWork
     private readonly StrideMemoDbContext _strideMemoDbContext;
 
     public UnitOfWork(StrideMemoDbContext strideMemoDbContext,
-        IErrorLogRepository errorLogRepository,
+        ILogRepository errorLogRepository,
         IUserRepository userRepository,
         IEmailConfigRepository emailConfigRepository)
     {
@@ -20,7 +20,7 @@ public class UnitOfWork : IUnitOfWork
         EmailConfigRepository = emailConfigRepository;
     }
 
-    public IErrorLogRepository ErrorLogRepository { get; }
+    public ILogRepository ErrorLogRepository { get; }
     public IUserRepository UserRepository { get; }
     public IEmailConfigRepository EmailConfigRepository { get; }
 

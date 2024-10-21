@@ -2,6 +2,7 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Persistence.Context;
+using CleanArchitecture.Shared.SharedResoures;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,7 +34,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
 
             builder.Services.AddDbContext<StrideMemoDbContext>(x =>
             {
-                x.UseSqlServer(connectionString);
+                x.UseSqlServer(connectionString, migrationLayer => migrationLayer.MigrationsAssembly(SharedResoure.MigrationLayer));
             });
 
             // CORS setup

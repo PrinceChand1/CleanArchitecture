@@ -1,5 +1,5 @@
 ﻿using CleanArchitecture.Application.Dtos;
-using CleanArchitecture.Domain.Entities.ErrorLogEntities;
+using CleanArchitecture.Domain.Entities.LogEntities;
 using CleanArchitecture.Infrastructure.Repositories.AbstractRepositories;
 using CleanArchitecture.Shared.SharedResoures;
 using Microsoft.AspNetCore.Http;
@@ -17,7 +17,7 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
         _unitOfWork = unitOfWork;
         try
         {
-            await HandleExceptionAsync(context);
+            //await HandleExceptionAsync(context);
             await _requestDelegate(context);
         }
         catch (Exception ex)
@@ -28,7 +28,7 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
 
     private async Task HandleExceptionAsync(HttpContext context, Exception exception = null)
     {
-        string errorMessage = exception.Message;
+        string errorMessage = exception.Message ?? string.Empty;
         try
         {
             var method = context.Request.Method;
@@ -41,14 +41,14 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
                 _ => "unknown"
             };
 
-            ErrorLog ErrorlogObj = new()
+            Log ErrorlogObj = new()
             {
                 Userid = 0,
                 Method = method,
                 Operation = operation,
                 Path = context.Request.Path,
                 InnerException = Convert.ToString(exception.InnerException),
-                ErrorMessage = Convert.ToString(exception.Message),
+                ErrorMessage = Convert.ToString(exception.Message) ?? string.Empty,
                 StackTrace = exception.StackTrace ?? "N/A",
                 Date = DateTime.Now,
             };

@@ -1,6 +1,6 @@
-﻿namespace CleanArchitecture.Domain.Entities.ErrorLogEntities;
-[Table(nameof(ErrorLog))]
-public class ErrorLog : BaseEntity
+﻿namespace CleanArchitecture.Domain.Entities.LogEntities;
+[Table(nameof(Log))]
+public class Log : BaseEntity
 {
     [Required]
     [MaxLength(200)]

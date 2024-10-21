@@ -30,7 +30,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             Password = "123",
             UserType = UserTypeEnum.Admin.ToString(),
             OfficeStaffType = string.Empty,
+            Username = UserTypeEnum.Admin.ToString(),
             CreatedOn = DateTime.Now,
+            CreatedBy = UserTypeEnum.Admin.ToString(),
         });
     }
 }

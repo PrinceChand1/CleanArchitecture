@@ -1,5 +1,5 @@
 ﻿using CleanArchitecture.Domain.Entities.EmailConfigEntities;
-using CleanArchitecture.Domain.Entities.ErrorLogEntities;
+using CleanArchitecture.Domain.Entities.LogEntities;
 using CleanArchitecture.Domain.Entities.Users;
 using System.Reflection;
 
@@ -9,7 +9,7 @@ public class StrideMemoDbContext : DbContext
     public StrideMemoDbContext(DbContextOptions<StrideMemoDbContext> options) : base(options) { }
     public DbSet<User> users { get; set; }
     public DbSet<EmailConfig> emailConfigs { get; set; }
-    public DbSet<ErrorLog> errorLogs { get; set; }
+    public DbSet<Log> errorLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -17,7 +17,7 @@ public class StrideMemoDbContext : DbContext
 
         // Throw error if migration commands are run outside of the Persistence layer
         var currentProject = AppDomain.CurrentDomain.BaseDirectory;
-        if (!currentProject.Contains("Persistence"))
+        if (currentProject.Contains("Persistence"))
         {
             throw new InvalidOperationException("Migrations can only be executed from the Persistence project.");
         }
