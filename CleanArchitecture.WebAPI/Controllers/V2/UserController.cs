@@ -1,17 +1,17 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CleanArchitecture.WebAPI.Controllers.V1
+namespace CleanArchitecture.WebAPI.Controllers.V2
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route(ApiRoutes.BaseRoutes)]
     [ApiController]
-    public class UserProfileController : Controller
+    public class UserController : Controller
     {
         [HttpGet]
         public IActionResult Index()
         {
-            return Ok("OK");
+            return Ok();
         }
     }
 }

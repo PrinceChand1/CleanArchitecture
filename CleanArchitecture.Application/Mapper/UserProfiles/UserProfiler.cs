@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Application.Dtos.UserDtos.RequestDto;
-using CleanArchitecture.Application.Dtos.UserDtos.ResponseDto;
+﻿using CleanArchitecture.Application.AdminDtos.UserDtos.ResponseDto;
+using CleanArchitecture.Application.Dtos.AdminDtos.RequestDto;
 using CleanArchitecture.Domain.Entities.Users;
 
 namespace CleanArchitecture.Application.Mapper.UserProfiles;

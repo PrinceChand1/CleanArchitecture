@@ -57,7 +57,7 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
         }
         catch (Exception ex)
         {
-            ResultDto<object> Res = new ResultDto<object>();
+            Result<object> Res = new Result<object>();
             if (ex.Message == SharedResoure.ErrorHandlingError)
             {
                 Res.Success = false;

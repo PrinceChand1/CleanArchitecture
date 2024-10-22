@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning.ApiExplorer;
 using CleanArchitecture.Application.Comman.Behaviours;
+using CleanArchitecture.Application.Comman.Security;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 
@@ -11,7 +12,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.AppServices
         {
             string CorsOrigins = "CorsOrigins";
             app.UseMiddleware(typeof(ExceptionHandlerMiddlewareBehaviour));
-            //app.UseMiddleware(typeof(JwtSecurityMiddleware));
+            app.UseMiddleware(typeof(JwtSecurityMiddleware));
             if (!app.Environment.IsDevelopment())
             {
             }
@@ -38,6 +39,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.AppServices
             }
 
             app.UseCors(CorsOrigins);
+            app.UseAuthentication();
             app.UseAuthorization();
         }
     }

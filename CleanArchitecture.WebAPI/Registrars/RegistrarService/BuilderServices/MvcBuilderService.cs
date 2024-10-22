@@ -30,7 +30,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
             });
             builder.Services.AddEndpointsApiExplorer();
 
-            builder.Services.AddInfrastructureServices().AddApplicationServices();
+            builder.Services.AddInfrastructureServices().AddApplicationServices(builder.Configuration);
 
             builder.Services.AddDbContext<StrideMemoDbContext>(x =>
             {
@@ -55,7 +55,6 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
                 });
             }
 
-            builder.Services.AddApplicationServices();
         }
     }
 }

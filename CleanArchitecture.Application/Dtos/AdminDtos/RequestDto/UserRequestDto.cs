@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Shared.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace CleanArchitecture.Application.Dtos.UserDtos.RequestDto;
+namespace CleanArchitecture.Application.Dtos.AdminDtos.RequestDto;
 public class UserRequestDto : BaseDto, IValidatableObject
 {
     [Required(ErrorMessage = $"{nameof(FirstName)} is required.")]

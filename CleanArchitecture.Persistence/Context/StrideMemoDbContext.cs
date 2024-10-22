@@ -21,9 +21,6 @@ public class StrideMemoDbContext : DbContext
         {
             throw new InvalidOperationException("Migrations can only be executed from the Persistence project.");
         }
-        //modelBuilder.ApplyConfiguration(new UserConfiguration());
-        //modelBuilder.ApplyConfiguration(new EmailConfigConfiguration());
-        //modelBuilder.ApplyConfiguration(new EmailConfigConfiguration());
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

@@ -1,5 +1,5 @@
 ﻿namespace CleanArchitecture.Application.Dtos;
-public class ResultDto<T>
+public class Result<T>
 {
     public T Data { get; set; }
     public bool Success { get; set; }
