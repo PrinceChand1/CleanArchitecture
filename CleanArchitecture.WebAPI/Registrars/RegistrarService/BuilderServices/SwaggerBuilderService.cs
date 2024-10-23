@@ -10,6 +10,7 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
         public void RegistrarBuilderServices(WebApplicationBuilder builder)
         {
             builder.Services.ConfigureOptions<ConfigureSwaggerOption>();
+
             builder.Services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition(SharedResoure.Bearer, new OpenApiSecurityScheme

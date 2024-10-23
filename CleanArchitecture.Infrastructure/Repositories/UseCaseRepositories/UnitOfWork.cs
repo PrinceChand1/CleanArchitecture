@@ -35,24 +35,27 @@ public class UnitOfWork : IUnitOfWork
             //    userName = user.Email;
             //}
             var allSavedEntries = _strideMemoDbContext.ChangeTracker.Entries().Where(x => x.State == Microsoft.EntityFrameworkCore.EntityState.Added || x.State == Microsoft.EntityFrameworkCore.EntityState.Modified).ToList();
-            foreach (var entry in allSavedEntries)
-            {
-                var entity = (BaseAuditableEntity)entry.Entity;
+            object? entryChecked = allSavedEntries.FirstOrDefault()?.Entity;
+            if (entryChecked?.GetType() != typeof(CleanArchitecture.Domain.Entities.LogEntities.Log))
+                foreach (var entry in allSavedEntries)
+                {
+                    var entity = (BaseAuditableEntity)entry.Entity;
 
-                if (entry.State == Microsoft.EntityFrameworkCore.EntityState.Added)
-                {
-                    entity.CreatedOn = DateTime.Now;
-                    entity.CreatedBy = userName;
-                    entity.IsDeleted = false;
+                    if (entry.State == Microsoft.EntityFrameworkCore.EntityState.Added)
+                    {
+                        entity.CreatedOn = DateTime.Now;
+                        entity.CreatedBy = userName;
+                        entity.IsDeleted = false;
+                    }
+                    else
+                    {
+                        entry.Property("CreatedOn").IsModified = false;
+                        entry.Property("CreatedBy").IsModified = false;
+                        entity.ModifiedOn = DateTime.Now;
+                        entity.ModifiedBy = userName;
+                    }
                 }
-                else
-                {
-                    entry.Property("CreatedOn").IsModified = false;
-                    entry.Property("CreatedBy").IsModified = false;
-                    entity.ModifiedOn = DateTime.Now;
-                    entity.ModifiedBy = userName;
-                }
-            }
+
             return await _strideMemoDbContext.SaveChangesAsync();
         }
         catch (Exception ex)

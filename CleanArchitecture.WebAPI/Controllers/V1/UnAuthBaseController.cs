@@ -1,10 +1,11 @@
 ﻿using Asp.Versioning;
+using CleanArchitecture.Shared.SharedResoures;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.WebAPI.Controllers.V1
 {
-    [ApiVersion("1.0")]
-    [Route(ApiRoutes.BaseRoutes)]
+    [ApiVersion(SharedResoure.V1_0)]
+    [Route(SharedResoure.BaseRoutes)]
     [ApiController]
     public class UnAuthBaseController : Controller
     {

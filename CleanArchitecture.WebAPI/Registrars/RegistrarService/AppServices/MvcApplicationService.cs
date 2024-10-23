@@ -27,6 +27,10 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.AppServices
 
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers(); // Ensure this is present
+            });
 
             // If in development, use Angular CLI server
             if (app.Environment.IsProduction())

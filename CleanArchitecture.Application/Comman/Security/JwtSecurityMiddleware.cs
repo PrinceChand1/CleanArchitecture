@@ -49,8 +49,8 @@ public class JwtSecurityMiddleware
             var userId = jwtToken.Claims.First(x => x.Type == "id").Value;
 
             //Attach user to context on successful JWT validation
-            //var result = await userService.GetById(int.Parse(userId), string.Empty);
-            //context.Items["User"] = result.Data;
+            var result = await userService.GetById(int.Parse(userId));
+            context.Items["User"] = result.Data;
         }
         catch
         {
