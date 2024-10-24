@@ -2,13 +2,11 @@
 using CleanArchitecture.Application.Dtos;
 using CleanArchitecture.Application.Dtos.AdminDtos.RequestDto;
 using CleanArchitecture.Application.Services.AbstractServices.Users;
-using CleanArchitecture.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.WebAPI.Controllers.V1
 {
-    [ServiceFilter(typeof(ProducesResponseTypeFilter))]
-    //[TypeFilter(typeof(ProducesResponseTypeFilter))]
+    //[ServiceFilter(typeof(ProducesResponseTypeFilter))]
     public class UserController : AuthBaseController
     {
         private readonly IUserService _userService;
@@ -41,5 +39,6 @@ namespace CleanArchitecture.WebAPI.Controllers.V1
         {
             return (await _userService.Delete(ids));
         }
+
     }
 }

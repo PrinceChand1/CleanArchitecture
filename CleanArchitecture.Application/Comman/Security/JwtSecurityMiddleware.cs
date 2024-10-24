@@ -46,7 +46,7 @@ public class JwtSecurityMiddleware
             }, out SecurityToken validatedToken);
 
             var jwtToken = (JwtSecurityToken)validatedToken;
-            var userId = jwtToken.Claims.First(x => x.Type == "id").Value;
+            var userId = jwtToken.Claims.First(x => x.Type == "UserId").Value;
 
             //Attach user to context on successful JWT validation
             var result = await userService.GetById(int.Parse(userId));

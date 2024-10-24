@@ -31,6 +31,7 @@ public class ExceptionHandlerMiddlewareBehaviour(RequestDelegate _requestDelegat
         string errorMessage = exception.Message ?? string.Empty;
         try
         {
+            var userid = context.User;
             var method = context.Request.Method;
             var operation = method switch
             {

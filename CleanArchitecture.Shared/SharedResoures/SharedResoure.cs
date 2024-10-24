@@ -18,9 +18,9 @@ public class SharedResoure
     public const string ErrorHandlingError = "StatusCode cannot be set because the response has already started.";
     public const string SessionExpired = "Your session is expired now.Please login again.";
     public const string UnableToHandleRequest = "Unable to handle the request.";
-    public const string UsernNotFound = "User not found.";
-    public const string IncorrectPassword = "Password is incorrect.";
     public const string UnAuthorizeUser = "This end point secured with token. Plese provide the token.";
     public const string MigrationLayer = "CleanArchitecture.Persistence";
     public const string WwwRootPathTemplate = "Template";
+    public const string UserNotFound = "User Not Found.";
+    public const string IncorrectPassword = "Password is incorrect.";
 }

@@ -37,6 +37,9 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
                         new string[]{}
                     }
                 });
+
+                // Customize Swagger to include responses from your custom filter
+                //options.OperationFilter<ProducesResponseTypeOperationFilter>();
             });
         }
     }

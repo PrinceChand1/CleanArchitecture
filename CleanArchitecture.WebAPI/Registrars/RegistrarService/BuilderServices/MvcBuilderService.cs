@@ -3,7 +3,6 @@ using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.Shared.SharedResoures;
-using CleanArchitecture.WebAPI.Filters;
 using CleanArchitecture.WebAPI.Registrars.IRegistrarService;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,13 +31,14 @@ namespace CleanArchitecture.WebAPI.Registrars.RegistrarService.BuilderServices
 
             builder.Services.AddInfrastructureServices().AddApplicationServices(builder.Configuration);
             //Registering the Filter for Dependency Injection
-            builder.Services.AddScoped<ProducesResponseTypeFilter>();
+            //builder.Services.AddScoped<ProducesResponseTypeFilter>();
+
 
             // Global Registration of the Filter
-            builder.Services.AddControllers(x =>
-            {
-                //x.Filters.Add<ProducesResponseTypeFilter>();
-            });
+            //builder.Services.AddControllers(x =>
+            //{
+            //    //x.Filters.Add<ProducesResponseTypeFilter>();
+            //});
 
             builder.Services.AddDbContext<StrideMemoDbContext>(x =>
             {
